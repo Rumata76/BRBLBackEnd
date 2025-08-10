@@ -19,6 +19,11 @@ public class User_ {
     private String mobilePhone;
     private String nationality;
 
+    @ManyToMany
+    @JoinTable(
+            name = ""
+    )
+
     @ManyToOne
     @JoinColumn(name = "idEvent")
     private Event event;
