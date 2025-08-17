@@ -21,7 +21,8 @@ public class User_ {
 
     @ManyToMany
     @JoinTable(
-            name = ""
+            name = "user_roles",
+            joinColumns = @JoinColumn(name = "idUser"),
     )
 
     @ManyToOne
