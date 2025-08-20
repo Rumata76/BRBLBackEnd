@@ -2,6 +2,8 @@ package be.burundiroots.BRBLBackEnd.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 
 public class User_ {
@@ -23,8 +25,17 @@ public class User_ {
     @JoinTable(
             name = "user_roles",
             joinColumns = @JoinColumn(name = "idUser"),
+            inverseJoinColumns = @JoinColumn(name = "idRole")
     )
+    private List<Roles> roles = @JoinColumn(name = "idRole");
 
+    @ManyToMany
+    @JoinTable(
+            name = "user_adress",
+            joinColumns = @JoinColumn(name = "idUser"),
+            inverseJoinColumns = @JoinColumn(name = "idAddress")
+    )
+    private List<Address> addresses = @JoinColumn(name = "idAddress");
     @ManyToOne
     @JoinColumn(name = "idEvent")
     private Event event;
@@ -114,11 +125,26 @@ public class User_ {
     public void setExtern(Extern extern){
         this.extern = extern;
     }
-    public Meeting getmeeting(){
+    public Meeting getMeeting(){
         return meeting;
     }
     public void setMeeting(Meeting meeting){
         this.meeting = meeting;
     }
 
+    public List<Roles> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Roles> roles) {
+        this.roles = roles;
+    }
+
+    public List<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
+    }
 }
