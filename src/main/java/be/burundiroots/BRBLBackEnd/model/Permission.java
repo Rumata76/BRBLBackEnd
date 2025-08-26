@@ -1,11 +1,20 @@
 package be.burundiroots.BRBLBackEnd.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@EqualsAndHashCode
+@Entity(name = "Permission")
+@Table(name = "Permission")
+
 public class Permission {
 
     @Id
@@ -19,53 +28,6 @@ public class Permission {
 
     @ManyToMany(mappedBy = "Permission")
     private List<Roles> roles = new ArrayList<>();
-    public Long getIdPermission() {
-        return idPermission;
-    }
-
-    public void setIdPermission(Long idPermission) {
-        this.idPermission = idPermission;
-    }
-
-    public String getRessource() {
-        return ressource;
-    }
-
-    public void setRessource(String ressource) {
-        this.ressource = ressource;
-    }
-
-    public String getCanRead() {
-        return canRead;
-    }
-
-    public void setCanRead(String canRead) {
-        this.canRead = canRead;
-    }
-
-    public String getCanWrite() {
-        return canWrite;
-    }
-
-    public void setCanWrite(String canWrite) {
-        this.canWrite = canWrite;
-    }
-
-    public String getCanDelete() {
-        return canDelete;
-    }
-
-    public void setCanDelete(String canDelete) {
-        this.canDelete = canDelete;
-    }
-
-    public List<Roles> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Roles> roles) {
-        this.roles = roles;
-    }
 
 
 }
