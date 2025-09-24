@@ -29,8 +29,7 @@ public class Roles {
             joinColumns = @JoinColumn(name = "role_id"),
             inverseJoinColumns = @JoinColumn(name = "permission_id")
     )
-
-    private List<Permission> permissions = @JoinColumn(name = "permission_id");
+    private List<Permission> permissions = new ArrayList<>();
 
     @ManyToMany(mappedBy = "Roles")
     private List<User_> users = new ArrayList<>();

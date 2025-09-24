@@ -3,6 +3,7 @@ package be.burundiroots.BRBLBackEnd.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -34,7 +35,7 @@ public class User_ {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-    private List<Roles> roles = @JoinColumn(name = "role_id");
+    private List<Roles> roles = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(
@@ -42,7 +43,7 @@ public class User_ {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "address_id")
     )
-    private List<Address> addresses = @JoinColumn(name = "address_id");
+    private List<Address> addresses = new ArrayList<>();
     @ManyToOne
     @JoinColumn(name = "event_id")
     private Event event;
