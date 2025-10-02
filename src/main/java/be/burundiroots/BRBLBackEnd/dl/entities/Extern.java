@@ -1,4 +1,4 @@
-package be.burundiroots.BRBLBackEnd.model;
+package be.burundiroots.BRBLBackEnd.dl.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -12,11 +12,11 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-@Entity(name = "Meeting")
-@Table(name = "Meeting")
-public class Meeting {
+@Entity(name = "Extern")
+@Table(name = "Extern")
+public class Extern {
 
-    Long idMeeting;
+    Long idExtern;
     String name;
     String type;
     String description;

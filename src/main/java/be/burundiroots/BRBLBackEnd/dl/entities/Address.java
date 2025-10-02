@@ -1,4 +1,4 @@
-package be.burundiroots.BRBLBackEnd.model;
+package be.burundiroots.BRBLBackEnd.dl.entities;
 
 import jakarta.persistence.*;
 import lombok.*;

@@ -1,7 +1,7 @@
 package be.burundiroots.BRBLBackEnd.service;
 
 
-import be.burundiroots.BRBLBackEnd.model.User_;
+import be.burundiroots.BRBLBackEnd.dl.entities.User_;
 
 import java.util.List;
 import java.util.Optional;

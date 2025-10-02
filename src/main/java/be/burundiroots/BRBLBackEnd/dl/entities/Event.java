@@ -1,4 +1,4 @@
-package be.burundiroots.BRBLBackEnd.model;
+package be.burundiroots.BRBLBackEnd.dl.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -12,9 +12,9 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-@Entity(name = "Place")
-@Table(name = "Place")
-public class Place {
+@Entity(name = "Event")
+@Table(name = "Event")
+public class Event {
 
     Long idEvent;
     String name;
@@ -24,9 +24,5 @@ public class Place {
     @ManyToOne
     @JoinColumn(name = "goal_id")
     private Goal goal;
-
-    @ManyToOne
-    @JoinColumn(name = "event_id")
-    private Event event;
 
 }

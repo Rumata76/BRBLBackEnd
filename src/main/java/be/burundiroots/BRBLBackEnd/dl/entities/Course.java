@@ -1,4 +1,4 @@
-package be.burundiroots.BRBLBackEnd.model;
+package be.burundiroots.BRBLBackEnd.dl.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -12,15 +12,17 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-@Entity(name = "Extern")
-@Table(name = "Extern")
-public class Extern {
+@Entity(name = "Course")
+@Table(name = "Course")
+public class Course {
 
-    Long idExtern;
+    Long idCourse;
     String name;
-    String type;
     String description;
 
-
+    @ManyToOne
+    @JoinColumn(name = "goal_id")
+    private Goal goal;
 
 }
+

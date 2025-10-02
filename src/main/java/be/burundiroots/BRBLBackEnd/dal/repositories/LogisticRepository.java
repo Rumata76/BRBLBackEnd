@@ -1,6 +1,6 @@
-package be.burundiroots.BRBLBackEnd.repository;
+package be.burundiroots.BRBLBackEnd.dal.repositories;
 
-import be.burundiroots.BRBLBackEnd.model.Logistic;
+import be.burundiroots.BRBLBackEnd.dl.entities.Logistic;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;
