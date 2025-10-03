@@ -49,7 +49,7 @@ public class User extends BaseEntity<Long> implements UserDetails {
     @Column
     private String nationality;
 
-    @ManyToMany
+    @ManyToMany(cascade =  CascadeType.PERSIST)
     @JoinTable(
             name = "USER_ROLE",
             joinColumns = @JoinColumn(name = "USER_ID"),
@@ -57,7 +57,7 @@ public class User extends BaseEntity<Long> implements UserDetails {
     )
     private List<Role> roles = new ArrayList<>();
 
-    @ManyToMany
+    @ManyToMany(cascade =  CascadeType.PERSIST)
     @JoinTable(
             name = "USER_ADDRESS",
             joinColumns = @JoinColumn(name = "USER_ID"),

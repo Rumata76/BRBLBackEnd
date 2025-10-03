@@ -1,43 +1,42 @@
 package be.burundiroots.BRBLBackEnd.dl.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
+@Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@EqualsAndHashCode
-@Entity(name = "Biblio")
-@Table(name = "Biblio")
-public class Biblio {
+@EqualsAndHashCode(callSuper = false)
+@Table(name = "BIBLIO")
+@AttributeOverride(name = "id", column = @Column(name = "BIBLIO_ID"))
+public class Biblio extends BaseEntity{
 
-    Long idBiblio;
+    @Column(unique = true, nullable = false, length = 50)
     String name;
-    String type;
-    String description;
 
+    @Column(nullable = false, length = 50)
+    String type;
+
+    @Column(nullable = true)
+    String description;
     @ManyToOne
-    @JoinColumn(name = "extern_id")
+    @JoinColumn(name = "EXTERN_ID")
     private Extern extern;
 
     @ManyToOne
-    @JoinColumn(name = "event_id")
+    @JoinColumn(name = "EVENT_ID")
     private Event event;
 
 
     @ManyToOne
-    @JoinColumn(name = "course_id")
+    @JoinColumn(name = "COURSE_ID")
     private Course course;
 
     @ManyToOne
-    @JoinColumn(name = "meeting_id")
+    @JoinColumn(name = "MEETING_ID")
     private Meeting meeting;
-
-
 
 }

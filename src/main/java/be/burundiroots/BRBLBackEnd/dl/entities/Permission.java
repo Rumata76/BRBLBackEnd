@@ -12,26 +12,24 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = false)
 @Table(name = "PERMISSION")
 @AttributeOverride(name = "id", column = @Column(name = "PERMISSION_ID"))
-public class Permission {
+public class Permission extends BaseEntity {
 
 
     @Column(unique = true, nullable = false, length = 50)
     private String ressource;
 
-    @Column(nullable = true, length = 2)
-    private String canRead;
+    @Column(nullable = true)
+    private boolean canRead;
 
-    @Column(nullable = true, length = 2)
-    private String canWrite;
+    @Column(nullable = true)
+    private boolean canWrite;
 
-    @Column(nullable = true, length = 2)
-    private String canDelete;
+    @Column(nullable = true)
+    private boolean canDelete;
 
-    @ManyToMany(mappedBy = "PERMISSION")
-    private List<Role> roles = new ArrayList<>();
 
 
 }

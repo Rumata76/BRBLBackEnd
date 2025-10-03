@@ -6,29 +6,34 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@EqualsAndHashCode
-@Entity(name = "Address")
-@Table(name = "Address")
+@EqualsAndHashCode(callSuper=false)
+@Table(name = "ADDRESS")
+@AttributeOverride(name = "id", column = @Column(name = "ADDRESS_ID"))
+public class Address extends BaseEntity {
 
-public class Address {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idAddress;
-
+    @Column(nullable = false, length = 100)
     private String street;
+
+    @Column(nullable = false, length = 50)
     private String city;
+
+    @Column(nullable = false, length = 50)
     private String country;
+
+    @Column(nullable = false, length = 50)
     private String streetNumber;
+
+    @Column(nullable = true, length = 50)
     private String streetbox;
+
+    @Column(nullable = false, length = 50)
     private String postalCode;
-    @ManyToMany(mappedBy = "Address")
-    private List<User_> users = new ArrayList<>();
 
 
 }

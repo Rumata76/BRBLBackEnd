@@ -1,26 +1,25 @@
 package be.burundiroots.BRBLBackEnd.dl.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
-
+@Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@EqualsAndHashCode
-@Entity(name = "Extern")
-@Table(name = "Extern")
-public class Extern {
+@EqualsAndHashCode(callSuper = false)
+@Table(name = "EXTERN")
+@AttributeOverride(name = "id", column = @Column(name = "EXTERN_ID"))
+public class Extern extends BaseEntity{
 
-    Long idExtern;
+    @Column(unique = true, nullable = false, length = 50)
     String name;
+
+    @Column(nullable = false, length = 50)
     String type;
+
+    @Column(nullable = true)
     String description;
-
-
 
 }

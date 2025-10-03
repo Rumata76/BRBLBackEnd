@@ -1,37 +1,39 @@
 package be.burundiroots.BRBLBackEnd.dl.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
+@Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@EqualsAndHashCode
-@Entity(name = "Finance")
-@Table(name = "Finance")
-public class Finance {
+@EqualsAndHashCode(callSuper = false)
+@Table(name = "FINANCE")
+@AttributeOverride(name = "id", column = @Column(name = "FINANCE_ID"))
+public class Finance extends BaseEntity {
 
-    Long idFinance;
+    @Column(unique = true, nullable = false, length = 50)
     String name;
+
+    @Column(nullable = false, length = 50)
     String type;
+
+    @Column(nullable = true)
     String description;
 
     @ManyToOne
-    @JoinColumn(name = "extern_id")
+    @JoinColumn(name = "EXTERN_ID")
     private Extern extern;
 
     @ManyToOne
-    @JoinColumn(name = "event_id")
+    @JoinColumn(name = "EVENT_ID")
     private Event event;
 
 
     @ManyToOne
-    @JoinColumn(name = "course_id")
+    @JoinColumn(name = "COURSE_ID")
     private Course course;
 
 

@@ -9,10 +9,10 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = false)
 @Table(name = "LOGISTIC")
 @AttributeOverride(name = "id", column = @Column(name = "LOGISTIC_ID"))
-public class Logistic {
+public class Logistic extends BaseEntity{
 
     @Column(unique = true, nullable = false, length = 50)
     String name;

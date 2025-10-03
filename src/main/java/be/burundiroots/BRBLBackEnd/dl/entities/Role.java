@@ -26,7 +26,7 @@ public class Role extends BaseEntity {
     @Column(nullable = true)
     private String description;
 
-    @ManyToMany
+    @ManyToMany(cascade =  CascadeType.PERSIST)
     @JoinTable(
             name = "ROLE_PERMISSION",
             joinColumns = @JoinColumn(name = "ROLE_ID"),
@@ -34,8 +34,7 @@ public class Role extends BaseEntity {
     )
     private List<Permission> permissions = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "ROLES")
-    private List<User> users = new ArrayList<>();
+
 
 
 }
