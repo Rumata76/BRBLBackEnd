@@ -8,5 +8,5 @@ import java.util.Optional;
 @Repository
 public interface GoalRepository extends JpaRepository<Goal, Long>{
 
-    Optional<Goal> findbyName(String name);
+  //  Optional<Goal> findbyName(String name);
 }

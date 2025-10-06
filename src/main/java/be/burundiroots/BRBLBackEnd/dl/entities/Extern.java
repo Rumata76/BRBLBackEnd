@@ -11,7 +11,7 @@ import lombok.*;
 @EqualsAndHashCode(callSuper = false)
 @Table(name = "EXTERN")
 @AttributeOverride(name = "id", column = @Column(name = "EXTERN_ID"))
-public class Extern extends BaseEntity{
+public class Extern extends BaseEntity<Long>{
 
     @Column(unique = true, nullable = false, length = 50)
     String name;

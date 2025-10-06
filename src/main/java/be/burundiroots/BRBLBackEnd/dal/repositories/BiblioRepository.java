@@ -8,5 +8,5 @@ import java.util.Optional;
 @Repository
 public interface BiblioRepository extends JpaRepository<Biblio, Long>{
 
-    Optional<Biblio> findbyName(String name);
+  //  Optional<Biblio> findbyName(String name);
 }

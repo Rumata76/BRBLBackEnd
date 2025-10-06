@@ -15,7 +15,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper=false)
 @Table(name = "ADDRESS")
 @AttributeOverride(name = "id", column = @Column(name = "ADDRESS_ID"))
-public class Address extends BaseEntity {
+public class Address extends BaseEntity<Long> {
 
     @Column(nullable = false, length = 100)
     private String street;

@@ -12,7 +12,7 @@ import lombok.*;
 @EqualsAndHashCode(callSuper = false)
 @Table(name = "BIBLIO")
 @AttributeOverride(name = "id", column = @Column(name = "BIBLIO_ID"))
-public class Biblio extends BaseEntity{
+public class Biblio extends BaseEntity<Long>{
 
     @Column(unique = true, nullable = false, length = 50)
     String name;

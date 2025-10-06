@@ -1,7 +1,6 @@
 package be.burundiroots.BRBLBackEnd.dal.repositories;
 
 import be.burundiroots.BRBLBackEnd.dl.entities.User;
-import be.burundiroots.BRBLBackEnd.dl.entities.User_;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

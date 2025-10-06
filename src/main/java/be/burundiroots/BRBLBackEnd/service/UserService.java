@@ -1,18 +1,18 @@
 package be.burundiroots.BRBLBackEnd.service;
 
 
-import be.burundiroots.BRBLBackEnd.dl.entities.User_;
+import be.burundiroots.BRBLBackEnd.dl.entities.User;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface UserService {
 
-    List<User_> getAllUsers();
-    Optional<User_> getUserById(Long id);
+    List<User> getAllUsers();
+    Optional<User> getUserById(Long id);
 
-    User_ createUser(User_ user);
-    User_ updateUser(Long id, User_ user);
+    User createUser(User user);
+    User updateUser(Long id, User user);
     void deleteUser(Long id);
 
 }

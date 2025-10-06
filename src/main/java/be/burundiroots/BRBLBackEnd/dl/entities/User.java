@@ -7,6 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -31,22 +32,22 @@ public class User extends BaseEntity<Long> implements UserDetails {
     @Column(nullable = false)
     private String password;
 
-    @Column
+    @Column(nullable = false)
     private String genre;
 
-    @Column
-    private String birthDate;
+    @Column(nullable = false)
+    private LocalDate birthDate;
 
-    @Column
+    @Column(nullable = true)
     private String placeOfBirth;
 
-    @Column
+    @Column(nullable = true)
     private String fixPhone;
 
     @Column(nullable = false)
     private String mobilePhone;
 
-    @Column
+    @Column(nullable = false)
     private String nationality;
 
     @ManyToMany(cascade =  CascadeType.PERSIST)

@@ -8,5 +8,5 @@ import java.util.Optional;
 @Repository
 public interface FinanceRepository extends JpaRepository<Finance, Long>{
 
-    Optional<Finance> findbyName(String name);
+  //  Optional<Finance> findbyName(String name);
 }

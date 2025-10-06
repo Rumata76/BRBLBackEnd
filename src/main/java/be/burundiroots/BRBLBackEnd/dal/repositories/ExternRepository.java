@@ -8,5 +8,5 @@ import java.util.Optional;
 @Repository
 public interface ExternRepository extends JpaRepository<Extern, Long>{
 
-    Optional<Extern> findbyName(String name);
+  //  Optional<Extern> findbyName(String name);
 }

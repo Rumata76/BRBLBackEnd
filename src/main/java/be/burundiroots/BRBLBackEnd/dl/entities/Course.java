@@ -12,7 +12,7 @@ import lombok.*;
 @EqualsAndHashCode(callSuper = false)
 @Table(name = "COURSE")
 @AttributeOverride(name = "id", column = @Column(name = "COURSE_ID"))
-public class Course extends BaseEntity{
+public class Course extends BaseEntity<Long>{
 
     @Column(unique = true, nullable = false, length = 50)
     String name;
@@ -20,9 +20,9 @@ public class Course extends BaseEntity{
     @Column(nullable = true)
     String description;
 
-    @ManyToOne
+ /*   @ManyToOne
     @JoinColumn(name = "GOAL_ID")
-    private Goal goal;
+    private Goal goal;*/
 
 }
 

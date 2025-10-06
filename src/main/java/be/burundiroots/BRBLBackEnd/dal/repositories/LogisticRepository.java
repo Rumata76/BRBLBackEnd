@@ -8,5 +8,5 @@ import java.util.Optional;
 @Repository
 public interface LogisticRepository extends JpaRepository<Logistic, Long>{
 
-    Optional<Logistic> findbyName(String name);
+ //   Optional<Logistic> findbyName(String name);
 }

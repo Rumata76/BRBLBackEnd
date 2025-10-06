@@ -15,19 +15,19 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = false)
 @Table(name = "PERMISSION")
 @AttributeOverride(name = "id", column = @Column(name = "PERMISSION_ID"))
-public class Permission extends BaseEntity {
+public class Permission extends BaseEntity<Long> {
 
 
-    @Column(unique = true, nullable = false, length = 50)
+    @Column(nullable = false, length = 50)
     private String ressource;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private boolean canRead;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private boolean canWrite;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private boolean canDelete;
 
 

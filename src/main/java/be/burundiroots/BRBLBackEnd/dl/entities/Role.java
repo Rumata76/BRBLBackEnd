@@ -17,7 +17,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = false)
 @Table(name = "ROLES")
 @AttributeOverride(name = "id", column = @Column(name = "ROLE_ID"))
-public class Role extends BaseEntity {
+public class Role extends BaseEntity<Long> {
 
     @Column(unique = true, nullable = false, length = 50)
     @Enumerated(EnumType.STRING)
