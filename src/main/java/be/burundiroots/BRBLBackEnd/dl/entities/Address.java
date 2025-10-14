@@ -35,5 +35,12 @@ public class Address extends BaseEntity<Long> {
     @Column(nullable = false, length = 50)
     private String postalCode;
 
+    public Address(String street, String city, String country, String streetNumber, String postalCode) {
+        this.street = street;
+        this.city = city;
+        this.country = country;
+        this.streetNumber = streetNumber;
+        this.postalCode = postalCode;
+    }
 
 }

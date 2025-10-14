@@ -1,4 +1,4 @@
-package be.burundiroots.BRBLBackEnd.service;
+package be.burundiroots.BRBLBackEnd.bll.service;
 
 
 import be.burundiroots.BRBLBackEnd.dl.entities.Role;

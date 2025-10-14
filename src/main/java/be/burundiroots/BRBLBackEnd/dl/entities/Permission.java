@@ -17,7 +17,6 @@ import java.util.List;
 @AttributeOverride(name = "id", column = @Column(name = "PERMISSION_ID"))
 public class Permission extends BaseEntity<Long> {
 
-
     @Column(nullable = false, length = 50)
     private String ressource;
 

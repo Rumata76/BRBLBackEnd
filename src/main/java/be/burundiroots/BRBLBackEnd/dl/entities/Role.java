@@ -6,8 +6,11 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+@RequiredArgsConstructor
 @Entity
 @Getter
 @Setter
@@ -19,6 +22,7 @@ import java.util.List;
 @AttributeOverride(name = "id", column = @Column(name = "ROLE_ID"))
 public class Role extends BaseEntity<Long> {
 
+    @NonNull
     @Column(unique = true, nullable = false, length = 50)
     @Enumerated(EnumType.STRING)
     private UserRole name;
@@ -26,15 +30,30 @@ public class Role extends BaseEntity<Long> {
     @Column(nullable = true)
     private String description;
 
-    @ManyToMany(cascade =  CascadeType.PERSIST)
+    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.MERGE)
     @JoinTable(
             name = "ROLE_PERMISSION",
             joinColumns = @JoinColumn(name = "ROLE_ID"),
             inverseJoinColumns = @JoinColumn(name = "PERMISSION_ID")
     )
-    private List<Permission> permissions = new ArrayList<>();
+    private Set<Permission> permissions = new HashSet<>();
 
 
+    public Role(UserRole name, String description) {
+        this.name = name;
+        this.description = description;
+    }
 
+    public Set<Permission> getPermissions() {
+        return Set.copyOf(this.permissions);
+    }
+
+    public void addPermission(Permission permission) {
+        this.permissions.add(permission);
+    }
+
+    public void removePermission(Permission permission) {
+        this.permissions.remove(permission);
+    }
 
 }
