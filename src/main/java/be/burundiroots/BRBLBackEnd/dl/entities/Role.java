@@ -39,6 +39,7 @@ public class Role extends BaseEntity<Long> {
     private Set<Permission> permissions = new HashSet<>();
 
 
+
     public Role(UserRole name, String description) {
         this.name = name;
         this.description = description;

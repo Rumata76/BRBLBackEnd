@@ -10,5 +10,6 @@ public enum UserRole {
     PROFESSEUR,
     PARTICIPANT,
     INSTITUTION,
+    USER,
     INVITE
 }

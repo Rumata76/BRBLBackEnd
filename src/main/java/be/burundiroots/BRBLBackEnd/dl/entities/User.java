@@ -15,8 +15,8 @@ import java.util.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-@EqualsAndHashCode(callSuper = false)
+@ToString(callSuper= true, of = {"email","firstname","lastname","roles"})
+@EqualsAndHashCode(callSuper = true, of = {"email"})
 @Table(name = "USERS")
 @AttributeOverride(name= "id", column=@Column(name = "USER_ID"))
 public class User extends BaseEntity<Long> implements UserDetails {
@@ -31,6 +31,14 @@ public class User extends BaseEntity<Long> implements UserDetails {
 
     @Column(nullable = false)
     private String password;
+
+
+    @Column(nullable = false, length = 100)
+    private String firstname;
+
+
+    @Column(nullable = false, length = 100)
+    private String lastname;
 
 
     @Column(nullable = false)
@@ -92,10 +100,12 @@ public class User extends BaseEntity<Long> implements UserDetails {
     @JoinColumn(name = "MEETING_ID")
     private Meeting meeting;
 */
-    public User(String username, String email, String password, String genre, LocalDate birthDate, String placeOfBirth, String  mobilePhone, String nationality) {
+    public User(String username, String email, String password, String firstname, String lastname, String genre, LocalDate birthDate, String placeOfBirth, String  mobilePhone, String nationality) {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.genre = genre;
         this.birthDate = birthDate;
         this.placeOfBirth = placeOfBirth;
