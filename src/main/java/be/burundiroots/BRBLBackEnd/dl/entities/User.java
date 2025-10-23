@@ -128,9 +128,22 @@ public class User extends BaseEntity<Long> implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
 
-        List auth = new ArrayList();
+        Set<GrantedAuthority> auth = new HashSet<>();
         for(Role rol : roles){
-          auth.add(new SimpleGrantedAuthority(rol.getName().toString()));
+          for(Permission perm : rol.getPermissions()){
+              if(perm.isCanRead()){
+
+                auth.add(new SimpleGrantedAuthority(perm.getRessource() + "_READ"));
+              }
+              if(perm.isCanWrite()){
+
+                  auth.add(new SimpleGrantedAuthority(perm.getRessource() + "_WRITE"));
+              }
+              if(perm.isCanDelete()){
+
+                  auth.add(new SimpleGrantedAuthority(perm.getRessource() + "_DELETE"));
+              }
+          }
         }
 
         return auth;

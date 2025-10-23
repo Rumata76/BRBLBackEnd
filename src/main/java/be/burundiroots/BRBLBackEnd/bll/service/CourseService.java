@@ -6,9 +6,9 @@ import org.springframework.data.domain.Pageable;
 
 public interface CourseService {
 
-    Page<Course> findAllCourse(Pageable pageable);
+    Page<Course> findAllCourses(Pageable pageable);
     Course findCourseById(Long id);
     Long save(Course course);
     void update(Long id, Course course);
-    void delete(Course course);
+    void delete(Long id);
 }

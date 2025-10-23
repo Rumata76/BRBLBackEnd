@@ -39,8 +39,8 @@ public class DataInitializer implements CommandLineRunner {
         }
 
 
-        Permission permission_course = new Permission("/course",true,true,true);
-        Permission permission_invite = new Permission("/",true,false,false);
+        Permission permission_course = new Permission("COURSE",true,true,true);
+        Permission permission_invite = new Permission("INVITE",true,false,false);
 
 
         if(permissionRepository.count()==0){

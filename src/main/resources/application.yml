@@ -11,8 +11,7 @@ spring:
     properties:
       hibernate:
         format-sql: true
-    freemaker:
-      expose-session-attributes: true
-
+  cache:
+    type: caffeine
 server:
   port: 8081
