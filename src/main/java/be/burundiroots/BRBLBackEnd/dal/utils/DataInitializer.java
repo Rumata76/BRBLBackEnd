@@ -6,6 +6,8 @@ import be.burundiroots.BRBLBackEnd.dl.enums.UserRole;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -20,6 +22,7 @@ public class DataInitializer implements CommandLineRunner {
     private final CourseRepository courseRepository;
     private final PermissionRepository permissionRepository;
     private final AddressRepository addressRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public void run(String... args) throws Exception {
@@ -75,7 +78,9 @@ public class DataInitializer implements CommandLineRunner {
 
         if(userRepository.count()==0){
 
-            User user_admin = new User("admin", "rumata76@hotmail.com", "dedansCNJ1!","Paul", "Ndiho", "Male",  LocalDate.of(1976,10,12), "Etterbeek", "+32 478219390", "Burundaise");
+            String adminpwd = passwordEncoder.encode("dedansCNJ1!");
+
+            User user_admin = new User("admin", "rumata76@hotmail.com",adminpwd ,"Paul", "Ndiho", "Male",  LocalDate.of(1976,10,12), "Etterbeek", "+32 478219390", "Burundaise");
 
             user_admin.addRole(role_admin);
             user_admin.addRole(role_president);
@@ -87,7 +92,9 @@ public class DataInitializer implements CommandLineRunner {
 
             user_admin = userRepository.save(user_admin);
 
-            User user_president = new User("président", "burundirootsbelgiumlife@outlook.fr", "dedansBRBL26","Paul","Ndiho","Male", LocalDate.of(1976,10,12), "Etterbeek",  "+32 478219390", "Burundaise");
+            String presidentpwd = passwordEncoder.encode("dedansBRBL26");
+
+            User user_president = new User("président", "burundirootsbelgiumlife@outlook.fr", presidentpwd ,"Paul","Ndiho","Male", LocalDate.of(1976,10,12), "Etterbeek",  "+32 478219390", "Burundaise");
 
             user_president.addRole(role_president);
             user_president.addRole(role_invite);

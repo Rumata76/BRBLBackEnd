@@ -6,6 +6,7 @@ import be.burundiroots.BRBLBackEnd.dl.entities.Role;
 import be.burundiroots.BRBLBackEnd.dl.entities.User;
 import be.burundiroots.BRBLBackEnd.dl.enums.UserRole;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -26,6 +27,7 @@ public class AuthServiceImpl implements AuthService, UserDetailsService {
 
 
     @Override
+    @Cacheable(value = "user", key ="#email")
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException{
         return userRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("user not found"));

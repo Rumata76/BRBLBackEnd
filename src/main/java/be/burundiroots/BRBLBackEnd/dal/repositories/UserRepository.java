@@ -12,7 +12,7 @@ import java.util.UUID;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{
 
-    @Query("select u from User u where u.email ilike :email")
+    @Query("select u from User u join fetch u.roles r join fetch r.permissions where u.email ilike :email")
     Optional<User> findByEmail(@Param("email") String email);
 
     @Query("select count(u)>0 from User u where u.email ilike :email")

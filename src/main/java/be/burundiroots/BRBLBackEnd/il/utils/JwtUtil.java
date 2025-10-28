@@ -2,6 +2,7 @@ package be.burundiroots.BRBLBackEnd.il.utils;
 
 import be.burundiroots.BRBLBackEnd.dl.entities.User;
 import be.burundiroots.BRBLBackEnd.dl.enums.UserRole;
+import be.burundiroots.BRBLBackEnd.il.configs.JwtConfig;
 import io.jsonwebtoken.*;
 import org.springframework.stereotype.Component;
 
@@ -16,22 +17,21 @@ public class JwtUtil {
 
     private final JwtBuilder builder;
     private final JwtParser parser;
+    private final JwtConfig config;
 
-    public JwtUtil() {
-        String secret = "Mâaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaat";
-        SecretKey secretKey = new SecretKeySpec(secret.getBytes(),"HmacSHA256");
-        builder = Jwts.builder().signWith(secretKey);
-        parser = Jwts.parser().verifyWith(secretKey).build();
+    public JwtUtil(JwtConfig config){
+        this.config = config;
+        builder = Jwts.builder().signWith(config.secretKey);
+        parser = Jwts.parser().verifyWith(config.secretKey).build();
     }
 
     public String generateToken(User user) {
-        int expiresAt = 86400000;
+
         return builder
-                .subject(user.getUsername())
+                .subject(user.getEmail())
                 .claim("id", user.getId())
-                .claim("roles", user.getRoles())
                 .issuedAt(new Date())
-                .expiration(new Date(System.currentTimeMillis()* expiresAt))
+                .expiration(new Date(System.currentTimeMillis()* config.expireAt))
                 .compact();
     }
 
