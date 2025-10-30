@@ -15,6 +15,7 @@ public record UserIndexDTO(
         String genre,
         LocalDate birthDate,
         String placeOfBirth ,
+        String fixPhone,
         String mobilePhone,
         String nationality
 ) {
@@ -29,6 +30,7 @@ public record UserIndexDTO(
                 user.getGenre(),
                 user.getBirthDate(),
                 user.getPlaceOfBirth(),
+                user.getFixPhone(),
                 user.getMobilePhone(),
                 user.getNationality()
         );

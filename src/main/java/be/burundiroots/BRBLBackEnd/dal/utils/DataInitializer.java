@@ -41,13 +41,13 @@ public class DataInitializer implements CommandLineRunner {
             cours = courseRepository.save(cours);
         }
 
-
-        Permission permission_course = new Permission("COURSE",true,true,true);
+        Permission permission_user_admin = new Permission("USER", true, true, true);
+        Permission permission_course_admin = new Permission("COURSE",true,true,true);
         Permission permission_invite = new Permission("INVITE",true,false,false);
 
 
         if(permissionRepository.count()==0){
-            permission_course = permissionRepository.save(permission_course);
+            permission_course_admin = permissionRepository.save(permission_course_admin);
             permission_invite = permissionRepository.save(permission_invite);
         }
 
@@ -59,12 +59,12 @@ public class DataInitializer implements CommandLineRunner {
 
         if(roleRepository.count()==0){
 
-            role_admin.addPermission(permission_course);
+            role_admin.addPermission(permission_course_admin);
             role_admin.addPermission(permission_invite);
 
             role_admin = roleRepository.save(role_admin);
 
-            role_president.addPermission(permission_course);
+            role_president.addPermission(permission_course_admin);
 
             role_president = roleRepository.save(role_president);
 
@@ -80,7 +80,7 @@ public class DataInitializer implements CommandLineRunner {
 
             String adminpwd = passwordEncoder.encode("dedansCNJ1!");
 
-            User user_admin = new User("admin", "rumata76@hotmail.com",adminpwd ,"Paul", "Ndiho", "Male",  LocalDate.of(1976,10,12), "Etterbeek", "+32 478219390", "Burundaise");
+            User user_admin = new User("admin", "rumata76@hotmail.com",adminpwd ,"Paul", "Ndiho", "Male",  LocalDate.of(1976,10,12), "Etterbeek",null, "+32 478219390", "Burundaise");
 
             user_admin.addRole(role_admin);
             user_admin.addRole(role_president);
@@ -94,7 +94,7 @@ public class DataInitializer implements CommandLineRunner {
 
             String presidentpwd = passwordEncoder.encode("dedansBRBL26");
 
-            User user_president = new User("président", "burundirootsbelgiumlife@outlook.fr", presidentpwd ,"Paul","Ndiho","Male", LocalDate.of(1976,10,12), "Etterbeek",  "+32 478219390", "Burundaise");
+            User user_president = new User("président", "burundirootsbelgiumlife@outlook.fr", presidentpwd ,"Paul","Ndiho","Male", LocalDate.of(1976,10,12), "Etterbeek", null, "+32 478219390", "Burundaise");
 
             user_president.addRole(role_president);
             user_president.addRole(role_invite);

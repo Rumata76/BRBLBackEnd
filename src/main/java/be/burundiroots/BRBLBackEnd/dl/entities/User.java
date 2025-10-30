@@ -88,19 +88,8 @@ public class User extends BaseEntity<Long> implements UserDetails {
     )
     private List<Course> courses = new ArrayList<>();
 
-    /*@ManyToOne
-    @JoinColumn(name = "EVENT_ID")
-    private Event event;
 
-    @ManyToOne
-    @JoinColumn(name = "EXTERN_ID")
-    private Extern extern;
-
-    @ManyToOne
-    @JoinColumn(name = "MEETING_ID")
-    private Meeting meeting;
-*/
-    public User(String username, String email, String password, String firstname, String lastname, String genre, LocalDate birthDate, String placeOfBirth, String  mobilePhone, String nationality) {
+    public User(String username, String email, String password, String firstname, String lastname, String genre, LocalDate birthDate, String placeOfBirth, String fixPhone, String  mobilePhone, String nationality) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -109,6 +98,7 @@ public class User extends BaseEntity<Long> implements UserDetails {
         this.genre = genre;
         this.birthDate = birthDate;
         this.placeOfBirth = placeOfBirth;
+        this.fixPhone = fixPhone;
         this.mobilePhone = mobilePhone;
         this.nationality = nationality;
 
