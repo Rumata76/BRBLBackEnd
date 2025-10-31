@@ -35,7 +35,7 @@ public class DataInitializer implements CommandLineRunner {
             address_admin = addressRepository.save(address_admin);
         }
 
-        Course cours = new Course("Kirundi - Abana - débutants", "Cours de Kirundi pour les enfants débutants");
+        Course cours = new Course("Kirundi","Abana","Débutants", "Cours de Kirundi pour les enfants débutants");
 
         if(courseRepository.count() == 0){
             cours = courseRepository.save(cours);
