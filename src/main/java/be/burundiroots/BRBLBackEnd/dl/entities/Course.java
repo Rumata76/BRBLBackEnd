@@ -20,9 +20,5 @@ public class Course extends BaseEntity<Long>{
     @Column(nullable = true)
     String description;
 
- /*   @ManyToOne
-    @JoinColumn(name = "GOAL_ID")
-    private Goal goal;*/
-
 }
 
